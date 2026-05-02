@@ -45,11 +45,6 @@ public static unsafe partial class LLVM
                 || NativeLibrary.TryLoad("libLLVM-18", assembly, searchPath, out nativeLibrary)
                 || NativeLibrary.TryLoad("libLLVM.so.1", assembly, searchPath, out nativeLibrary);
         }
-        else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-        {
-            return NativeLibrary.TryLoad("LLVM-C.dll", assembly, searchPath, out nativeLibrary);
-        }
-
         nativeLibrary = IntPtr.Zero;
         return false;
     }
